@@ -1,59 +1,66 @@
-<x-layouts::auth :title="__('Log in')">
-    <div class="flex flex-col gap-6">
-        <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
+<x-layouts::auth::simple>
+    <div class="flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+            <x-app-logo class="size-16 fill-white drop-shadow-2xl" />
+            <div class="text-center">
+                <h1 class="text-4xl font-black text-white tracking-tight">เข้าสู่ระบบ</h1>
+                <p class="text-white/70 mt-2 font-medium">ยินดีต้อนรับสู่ระบบจัดการกิจกรรมพรีเมียม</p>
+            </div>
+        </div>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="text-center" :status="session('status')" />
-
-        <form method="POST" action="{{ route('login.store') }}" class="flex flex-col gap-6">
-            @csrf
-
-            <!-- Email Address -->
-            <flux:input
-                name="email"
-                :label="__('Email address')"
-                :value="old('email')"
-                type="email"
-                required
-                autofocus
-                autocomplete="email"
-                placeholder="email@example.com"
-            />
-
-            <!-- Password -->
-            <div class="relative">
+        <div class="glass p-10 rounded-[2.5rem] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+            <form wire:submit="login" class="flex flex-col gap-8">
+                <!-- Email Address -->
                 <flux:input
-                    name="password"
-                    :label="__('Password')"
-                    type="password"
+                    wire:model="email"
+                    :label="__('อีเมล')"
+                    type="email"
+                    name="email"
                     required
-                    autocomplete="current-password"
-                    :placeholder="__('Password')"
-                    viewable
+                    autofocus
+                    autocomplete="email"
+                    placeholder="email@example.com"
+                    class="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-14 rounded-2xl px-5 transition-all focus:bg-white/20"
                 />
 
-                @if (Route::has('password.request'))
-                    <flux:link class="absolute top-0 text-sm end-0" :href="route('password.request')" wire:navigate>
-                        {{ __('Forgot your password?') }}
-                    </flux:link>
-                @endif
-            </div>
+                <!-- Password -->
+                <div class="relative">
+                    <flux:input
+                        wire:model="password"
+                        :label="__('รหัสผ่าน')"
+                        type="password"
+                        name="password"
+                        required
+                        autocomplete="current-password"
+                        placeholder="••••••••"
+                        class="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-14 rounded-2xl px-5 transition-all focus:bg-white/20"
+                    />
+                    
+                    @if (Route::has('password.request'))
+                        <flux:link :href="route('password.request')" variant="subtle" class="absolute right-0 top-0 text-xs font-bold text-white/50 hover:text-white transition-colors" wire:navigate>
+                            {{ __('ลืมรหัสผ่าน?') }}
+                        </flux:link>
+                    @endif
+                </div>
 
-            <!-- Remember Me -->
-            <flux:checkbox name="remember" :label="__('Remember me')" :checked="old('remember')" />
+                <!-- Remember Me -->
+                <flux:checkbox wire:model="remember" :label="__('จดจำฉันไว้ในระบบ')" class="text-white/70 font-medium" />
 
-            <div class="flex items-center justify-end">
-                <flux:button variant="primary" type="submit" class="w-full" data-test="login-button">
-                    {{ __('Log in') }}
-                </flux:button>
-            </div>
-        </form>
+                <div class="flex flex-col gap-4 mt-2">
+                    <flux:button type="submit" variant="primary" class="w-full h-14 rounded-2xl bg-white text-zinc-900 hover:bg-zinc-100 font-black text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-2xl">
+                        {{ __('เข้าสู่ระบบตอนนี้') }}
+                    </flux:button>
 
-        @if (Route::has('register'))
-            <div class="space-x-1 text-sm text-center rtl:space-x-reverse text-zinc-600 dark:text-zinc-400">
-                <span>{{ __('Don\'t have an account?') }}</span>
-                <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
-            </div>
-        @endif
+                    @if (Route::has('register'))
+                        <div class="text-center mt-4">
+                            <span class="text-white/50 text-sm font-medium">{{ __('ยังไม่มีบัญชี?') }}</span>
+                            <flux:link :href="route('register')" variant="subtle" class="text-sm font-black text-white hover:underline transition-all ml-1" wire:navigate>
+                                {{ __('สมัครสมาชิกใหม่') }}
+                            </flux:link>
+                        </div>
+                    @endif
+                </div>
+            </form>
+        </div>
     </div>
-</x-layouts::auth>
+</x-layouts::auth::simple>
