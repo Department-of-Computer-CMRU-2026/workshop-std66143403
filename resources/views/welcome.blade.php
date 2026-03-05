@@ -45,7 +45,7 @@
                         <span class="bg-clip-text text-transparent bg-linear-to-r from-indigo-400 via-sky-400 to-emerald-400 drop-shadow-[0_0_30px_rgba(56,189,248,0.3)]">JUNIOR</span>
                     </h1>
                     <p class="text-2xl md:text-4xl font-medium text-white/40 max-w-3xl mx-auto leading-relaxed font-sans">
-                        ส่งต่อความความรู้จากพี่สู่น้อง<br class="hidden md:block"/> 
+                        ส่งต่อความความรู้จากพี่สู่น้อง5555<br class="hidden md:block"/> 
                         ผ่านประสบการณ์การเรียนรู้ระดับ <span class="bg-clip-text text-transparent bg-linear-to-r from-amber-400 to-rose-400 font-black">Ultra-Premium</span>
                     </p>
                 </div>
