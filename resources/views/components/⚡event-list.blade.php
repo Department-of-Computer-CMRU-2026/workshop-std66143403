@@ -148,7 +148,7 @@ new class extends Component {
                     @else
                         <button wire:click="register({{ $event->id }})" class="w-full py-5 rounded-[2rem] bg-brand-600 hover:bg-brand-500 text-white font-black text-xl transition-all duration-300 shadow-xl shadow-brand-600/25 hover:scale-[1.02] flex items-center justify-center gap-3" wire:loading.attr="disabled">
                             <span wire:loading.remove wire:target="register({{ $event->id }})" class="flex items-center gap-3">
-                                <flux:icon name="party-popper" class="size-6" />
+                                <flux:icon name="sparkles" class="size-6" />
                                 ลงทะเบียนทันที
                             </span>
                             <span wire:loading wire:target="register({{ $event->id }})" class="animate-pulse">กำลังดำเนินการ...</span>
