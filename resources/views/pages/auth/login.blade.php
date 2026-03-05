@@ -9,7 +9,7 @@
         </div>
 
         <div class="glass-premium p-10 rounded-[2.5rem] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-8">
+            <form method="POST" action="{{ route('login.store') }}" class="flex flex-col gap-8">
                 @csrf
                 
                 @if ($errors->any())
@@ -23,51 +23,59 @@
                 @endif
 
                 <!-- Email Address -->
-                <flux:input
-                    :label="__('อีเมล')"
-                    type="email"
-                    name="email"
-                    :value="old('email')"
-                    required
-                    autofocus
-                    autocomplete="email"
-                    placeholder="email@example.com"
-                    class="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10"
-                />
+                <div class="flex flex-col gap-2">
+                    <label for="email" class="text-sm font-medium text-white/70">{{ __('อีเมล') }}</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        value="{{ old('email') }}"
+                        required
+                        autofocus
+                        autocomplete="email"
+                        placeholder="email@example.com"
+                        class="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                    />
+                </div>
 
                 <!-- Password -->
-                <div class="relative">
-                    <flux:input
-                        :label="__('รหัสผ่าน')"
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-center">
+                        <label for="password" class="text-sm font-medium text-white/70">{{ __('รหัสผ่าน') }}</label>
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}" class="text-xs font-bold text-white/40 hover:text-white transition-colors">
+                                {{ __('ลืมรหัสผ่าน?') }}
+                            </a>
+                        @endif
+                    </div>
+                    <input
+                        id="password"
                         type="password"
                         name="password"
                         required
                         autocomplete="current-password"
                         placeholder="••••••••"
-                        class="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10"
+                        class="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
                     />
-                    
-                    @if (Route::has('password.request'))
-                        <flux:link :href="route('password.request')" variant="subtle" class="absolute right-0 top-0 text-xs font-bold text-white/40 hover:text-white transition-colors" wire:navigate>
-                            {{ __('ลืมรหัสผ่าน?') }}
-                        </flux:link>
-                    @endif
                 </div>
 
                 <!-- Remember Me -->
-                <flux:checkbox name="remember" :label="__('จดจำฉันไว้ในระบบ')" class="text-white/60 font-medium" />
+                <label class="flex items-center gap-3 cursor-pointer group">
+                    <input type="checkbox" name="remember" class="size-5 rounded border-white/10 bg-white/5 text-brand-500 focus:ring-brand-500/50 transition-all">
+                    <span class="text-white/60 font-medium group-hover:text-white transition-colors">{{ __('จดจำฉันไว้ในระบบ') }}</span>
+                </label>
 
                 <div class="flex flex-col gap-4 mt-2">
-                    <flux:button type="submit" variant="primary" class="w-full h-16 rounded-3xl bg-white text-zinc-950 hover:bg-zinc-100 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-2xl shadow-white/10">
+                    <button type="submit" class="w-full h-16 rounded-3xl bg-white text-zinc-950 hover:bg-zinc-100 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-2xl shadow-white/10 cursor-pointer">
                         {{ __('เข้าสู่ระบบตอนนี้') }}
-                    </flux:button>
+                    </button>
 
                     @if (Route::has('register'))
                         <div class="text-center mt-6">
                             <span class="text-white/40 text-sm font-medium">{{ __('ยังไม่มีบัญชี?') }}</span>
-                            <flux:link :href="route('register')" variant="subtle" class="text-sm font-black text-white hover:underline transition-all ml-2" wire:navigate>
+                            <a href="{{ route('register') }}" class="text-sm font-black text-white hover:underline transition-all ml-2">
                                 {{ __('สมัครสมาชิกใหม่ที่นี่') }}
-                            </flux:link>
+                            </a>
                         </div>
                     @endif
                 </div>

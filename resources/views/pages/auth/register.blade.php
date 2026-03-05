@@ -10,7 +10,7 @@
         </div>
 
         <div class="glass-premium p-10 md:p-12 rounded-[3rem] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <form method="POST" action="{{ route('register') }}" class="flex flex-col gap-8">
+            <form method="POST" action="{{ route('register.store') }}" class="flex flex-col gap-8">
                 @csrf
 
                 @if ($errors->any())
@@ -25,65 +25,77 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Name -->
-                    <flux:input
-                        name="name"
-                        :label="__('ชื่อ-นามสกุล')"
-                        :value="old('name')"
-                        type="text"
-                        required
-                        autofocus
-                        autocomplete="name"
-                        placeholder="John Doe"
-                        class="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10"
-                    />
+                    <div class="flex flex-col gap-2">
+                        <label for="name" class="text-sm font-medium text-white/70">{{ __('ชื่อ-นามสกุล') }}</label>
+                        <input
+                            id="name"
+                            name="name"
+                            value="{{ old('name') }}"
+                            type="text"
+                            required
+                            autofocus
+                            autocomplete="name"
+                            placeholder="John Doe"
+                            class="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                        />
+                    </div>
 
                     <!-- Email Address -->
-                    <flux:input
-                        name="email"
-                        :label="__('อีเมล')"
-                        :value="old('email')"
-                        type="email"
-                        required
-                        autocomplete="email"
-                        placeholder="email@example.com"
-                        class="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10"
-                    />
+                    <div class="flex flex-col gap-2">
+                        <label for="email" class="text-sm font-medium text-white/70">{{ __('อีเมล') }}</label>
+                        <input
+                            id="email"
+                            name="email"
+                            value="{{ old('email') }}"
+                            type="email"
+                            required
+                            autocomplete="email"
+                            placeholder="email@example.com"
+                            class="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                        />
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Password -->
-                    <flux:input
-                        name="password"
-                        :label="__('รหัสผ่าน')"
-                        type="password"
-                        required
-                        autocomplete="new-password"
-                        placeholder="••••••••"
-                        class="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10"
-                    />
+                    <div class="flex flex-col gap-2">
+                        <label for="password" class="text-sm font-medium text-white/70">{{ __('รหัสผ่าน') }}</label>
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            required
+                            autocomplete="new-password"
+                            placeholder="••••••••"
+                            class="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                        />
+                    </div>
 
                     <!-- Confirm Password -->
-                    <flux:input
-                        name="password_confirmation"
-                        :label="__('ยืนยันรหัสผ่าน')"
-                        type="password"
-                        required
-                        autocomplete="new-password"
-                        placeholder="••••••••"
-                        class="bg-white/5 border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10"
-                    />
+                    <div class="flex flex-col gap-2">
+                        <label for="password_confirmation" class="text-sm font-medium text-white/70">{{ __('ยืนยันรหัสผ่าน') }}</label>
+                        <input
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            type="password"
+                            required
+                            autocomplete="new-password"
+                            placeholder="••••••••"
+                            class="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 h-14 rounded-2xl px-5 transition-all focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                        />
+                    </div>
                 </div>
 
                 <div class="flex flex-col gap-6 mt-4">
-                    <flux:button type="submit" variant="primary" class="w-full h-16 rounded-3xl bg-white text-zinc-950 hover:bg-zinc-100 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-2xl shadow-white/10">
+                    <button type="submit" class="w-full h-16 rounded-3xl bg-white text-zinc-950 hover:bg-zinc-100 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-2xl shadow-white/10 cursor-pointer">
                         {{ __('สร้างบัญชีผู้ใช้ใหม่') }}
-                    </flux:button>
+                    </button>
 
                     <div class="text-center">
                         <span class="text-white/40 text-sm font-medium">{{ __('มีบัญชีอยู่แล้ว?') }}</span>
-                        <flux:link :href="route('login')" variant="subtle" class="text-sm font-black text-white hover:underline transition-all ml-2" wire:navigate>
+                        <a href="{{ route('login') }}" class="text-sm font-black text-white hover:underline transition-all ml-2">
                             {{ __('เข้าสู่ระบบที่นี่') }}
-                        </flux:link>
+                        </a>
                     </div>
                 </div>
             </form>
