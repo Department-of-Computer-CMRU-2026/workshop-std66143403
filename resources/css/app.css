@@ -39,6 +39,14 @@
     --color-accent: var(--color-brand-600);
     --color-accent-content: var(--color-brand-600);
     --color-accent-foreground: var(--color-white);
+
+    /* Vibrant Accents */
+    --color-rose-400: #fb7185;
+    --color-rose-500: #f43f5e;
+    --color-amber-400: #fbbf24;
+    --color-amber-500: #f59e0b;
+    --color-sky-400: #38bdf8;
+    --color-sky-500: #0ea5e9;
 }
 
 @layer theme {

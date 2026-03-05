@@ -3,7 +3,9 @@
         
         <!-- Animated Decorative Elements -->
         <div class="absolute -top-24 -left-24 size-96 bg-brand-500/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute top-1/2 -right-48 size-[500px] bg-indigo-500/10 rounded-full blur-[150px] animate-pulse delay-700"></div>
+        <div class="absolute top-1/4 -right-48 size-[400px] bg-rose-500/10 rounded-full blur-[130px] animate-pulse delay-500"></div>
+        <div class="absolute bottom-1/4 -left-48 size-[500px] bg-amber-500/10 rounded-full blur-[150px] animate-pulse delay-1000"></div>
+        <div class="absolute -bottom-24 right-1/4 size-96 bg-sky-500/10 rounded-full blur-[120px] animate-pulse delay-1500"></div>
 
         <!-- Header/Navigation -->
         <header class="relative z-50 flex justify-between items-center py-10 mb-20">
@@ -39,12 +41,12 @@
                 <!-- Main Headline -->
                 <div class="space-y-8 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-100">
                     <h1 class="text-7xl md:text-[140px] font-black tracking-tighter leading-[0.8] text-white">
-                        SENIOR TO<br/>
-                        <span class="text-gradient drop-shadow-[0_0_30px_rgba(139,92,246,0.3)]">JUNIOR</span>
+                        <span class="bg-clip-text text-transparent bg-linear-to-r from-rose-400 via-brand-400 to-indigo-400">SENIOR</span> TO<br/>
+                        <span class="bg-clip-text text-transparent bg-linear-to-r from-indigo-400 via-sky-400 to-emerald-400 drop-shadow-[0_0_30px_rgba(56,189,248,0.3)]">JUNIOR</span>
                     </h1>
                     <p class="text-2xl md:text-4xl font-medium text-white/40 max-w-3xl mx-auto leading-relaxed font-sans">
                         ส่งต่อความความรู้จากพี่สู่น้อง<br class="hidden md:block"/> 
-                        ผ่านประสบการณ์การเรียนรู้ระดับ <span class="text-white">Ultra-Premium</span>
+                        ผ่านประสบการณ์การเรียนรู้ระดับ <span class="bg-clip-text text-transparent bg-linear-to-r from-amber-400 to-rose-400 font-black">Ultra-Premium</span>
                     </p>
                 </div>
 
@@ -92,25 +94,25 @@
 
         <!-- Dynamic Grid Section -->
         <section class="py-32 grid grid-cols-1 md:grid-cols-3 gap-12 animate-in fade-in slide-in-from-bottom-24 duration-1000 delay-700">
-            <div class="glass-premium p-14 rounded-[4.5rem] hover-3d border-white/5">
-                <div class="size-24 bg-brand-500/10 rounded-[2rem] flex items-center justify-center mb-12 shadow-inner">
-                    <flux:icon name="cpu-chip" class="size-12 text-brand-500" />
+            <div class="glass-premium p-14 rounded-[4.5rem] hover-3d border-rose-500/10">
+                <div class="size-24 bg-rose-500/10 rounded-[2rem] flex items-center justify-center mb-12 shadow-[0_0_30px_rgba(244,63,94,0.2)]">
+                    <flux:icon name="cpu-chip" class="size-12 text-rose-500" />
                 </div>
                 <h4 class="text-3xl font-black mb-6 text-white">นวัตกรรมการสอน</h4>
                 <p class="text-white/40 font-medium text-xl leading-relaxed">ใช้เทคนิคการสอนที่ทันสมัย เน้นการลงมือทำจริงเพื่อผลลัพธ์ที่ดีที่สุด</p>
             </div>
             
-            <div class="glass-premium p-14 rounded-[4.5rem] hover-3d border-white/5 mt-12 md:-mt-12">
-                <div class="size-24 bg-indigo-500/10 rounded-[2rem] flex items-center justify-center mb-12 shadow-inner">
-                    <flux:icon name="sparkles" class="size-12 text-indigo-500" />
+            <div class="glass-premium p-14 rounded-[4.5rem] hover-3d border-amber-500/10 mt-12 md:-mt-12">
+                <div class="size-24 bg-amber-500/10 rounded-[2rem] flex items-center justify-center mb-12 shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                    <flux:icon name="sparkles" class="size-12 text-amber-500" />
                 </div>
                 <h4 class="text-3xl font-black mb-6 text-white">ประสบการณ์พรีเมียม</h4>
                 <p class="text-white/40 font-medium text-xl leading-relaxed">สัมผัสบรรยากาศการเรียนที่ไม่เหมือนใคร ในสังคมแห่งการแบ่งปัน</p>
             </div>
 
-            <div class="glass-premium p-14 rounded-[4.5rem] hover-3d border-white/5">
-                <div class="size-24 bg-emerald-500/10 rounded-[2rem] flex items-center justify-center mb-12 shadow-inner">
-                    <flux:icon name="trophy" class="size-12 text-emerald-500" />
+            <div class="glass-premium p-14 rounded-[4.5rem] hover-3d border-sky-500/10">
+                <div class="size-24 bg-sky-500/10 rounded-[2rem] flex items-center justify-center mb-12 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
+                    <flux:icon name="trophy" class="size-12 text-sky-500" />
                 </div>
                 <h4 class="text-3xl font-black mb-6 text-white">เกียรติบัตรรับรอง</h4>
                 <p class="text-white/40 font-medium text-xl leading-relaxed">รับประกาศนียบัตรเมื่อเรียนจบ เพื่อต่อยอดอนาคตการทำงาน</p>
