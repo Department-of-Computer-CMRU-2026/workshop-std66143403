@@ -40,6 +40,9 @@
     --color-accent-content: var(--color-brand-600);
     --color-accent-foreground: var(--color-white);
 
+    --shadow-premium: 0 32px 64px -16px rgba(0, 0, 0, 0.3);
+
+
     /* Vibrant Accents */
     --color-rose-400: #fb7185;
     --color-rose-500: #f43f5e;
@@ -82,7 +85,7 @@
     }
 
     .glass-premium {
-        @apply bg-white/40 dark:bg-white/[0.03] backdrop-blur-[32px] border border-white/20 dark:border-white/[0.08] shadow-[0_32px_64px_-16px_rgba(0, 0, 0, 0.3)];
+        @apply bg-white/40 dark:bg-white/[0.03] backdrop-blur-[32px] border border-white/20 dark:border-white/[0.08] shadow-premium;
     }
 
     .glow {
