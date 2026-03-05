@@ -1,4 +1,4 @@
-<x-layouts::auth::simple>
+<x-layouts::auth.simple>
     <!-- Header/Navigation -->
     <header class="w-full flex justify-between items-center mb-24 animate-in fade-in slide-in-from-top-4 duration-1000">
         <div class="flex items-center gap-3">
@@ -101,4 +101,4 @@
             <a href="#" class="text-white/20 hover:text-white transition-colors text-xs font-black uppercase tracking-widest">Terms of Service</a>
         </div>
     </footer>
-</x-layouts::auth::simple>
+</x-layouts::auth.simple>

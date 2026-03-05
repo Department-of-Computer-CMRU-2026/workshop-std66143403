@@ -1,4 +1,4 @@
-<x-layouts::auth::simple>
+<x-layouts::auth.simple>
     <div class="flex flex-col gap-8">
         <div class="flex flex-col items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
             <x-app-logo class="size-16 fill-white drop-shadow-2xl" />
@@ -63,4 +63,4 @@
             </form>
         </div>
     </div>
-</x-layouts::auth::simple>
+</x-layouts::auth.simple>
