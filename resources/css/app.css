@@ -73,12 +73,38 @@
         @apply bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl;
     }
 
+    .glass-premium {
+        @apply bg-white/40 dark:bg-white/[0.03] backdrop-blur-[32px] border border-white/20 dark:border-white/[0.08] shadow-[0_32px_64px_-16px_rgba(0, 0, 0, 0.3)];
+    }
+
+    .glow {
+        @apply relative;
+    }
+
+    .glow::after {
+        content: '';
+        @apply absolute inset-0 -z-10 bg-brand-500/20 blur-2xl rounded-full opacity-0 transition-opacity duration-500;
+    }
+
+    .glow:hover::after {
+        @apply opacity-100;
+    }
+
+    .hover-3d {
+        @apply transition-all duration-500 ease-out;
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    }
+
+    .hover-3d:hover {
+        transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-8px);
+    }
+
     .text-gradient {
-        @apply bg-clip-text text-transparent bg-linear-to-r from-brand-600 to-indigo-600;
+        @apply bg-clip-text text-transparent bg-linear-to-r from-brand-400 via-indigo-400 to-emerald-400;
     }
 
     .bg-animate-gradient {
-        background: linear-gradient(-45deg, #7c3aed, #4f46e5, #2563eb, #0ea5e9);
+        background: linear-gradient(-45deg, #7c3aed, #4f46e5, #0ea5e9, #10b981);
         background-size: 400% 400%;
         animation: gradient-shift 15s ease infinite;
     }
