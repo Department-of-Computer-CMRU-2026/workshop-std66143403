@@ -17,10 +17,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('events', [\App\Http\Controllers\User\HomeController::class , 'index'])->name('user.events');
 
         // Admin Routes
-        Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::middleware(\App\Http\Middleware\IsAdmin::class)->prefix('admin')->name('admin.')->group(function () {
             Route::get('dashboard', [\App\Http\Controllers\Admin\EventController::class , 'dashboard'])->name('dashboard');
             Route::resource('events', \App\Http\Controllers\Admin\EventController::class);
         }
-        );    });
+        );
+    });
 
 require __DIR__ . '/settings.php';

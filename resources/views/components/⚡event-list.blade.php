@@ -21,20 +21,20 @@ new class extends Component {
 
         // Check if already registered
         if (Registration::where('user_id', $userId)->where('event_id', $eventId)->exists()) {
-            session()->flash('error', 'You are already registered for this event.');
+            session()->flash('error', 'คุณได้ลงทะเบียนกิจกรรมนี้ไปแล้ว');
             return;
         }
 
         // Check if user limit reached (max 3)
         if (Registration::where('user_id', $userId)->count() >= 3) {
-            session()->flash('error', 'You can only register for a maximum of 3 events.');
+            session()->flash('error', 'คุณสามารถลงทะเบียนได้สูงสุด 3 กิจกรรมเท่านั้น');
             return;
         }
 
         // Check availability
         $event = Event::withCount('registrations')->findOrFail($eventId);
         if ($event->registrations_count >= $event->total_seats) {
-            session()->flash('error', 'This event is already full.');
+            session()->flash('error', 'กิจกรรมนี้ที่นั่งเต็มแล้ว');
             return;
         }
 
@@ -44,16 +44,16 @@ new class extends Component {
                 'user_id' => $userId,
                 'event_id' => $eventId,
             ]);
-            session()->flash('success', "Successfully registered for {$event->title}!");
+            session()->flash('success', "ลงทะเบียนเข้าร่วม {$event->title} สำเร็จ!");
         } catch (\Exception $e) {
-            session()->flash('error', 'Failed to register. Please try again.');
+            session()->flash('error', 'การลงทะเบียนล้มเหลว กรุณาลองใหม่อีกครั้ง');
         }
     }
     
     public function cancel($eventId)
     {
         Registration::where('user_id', Auth::id())->where('event_id', $eventId)->delete();
-        session()->flash('info', 'Registration cancelled.');
+        session()->flash('info', 'ยกเลิกการลงทะเบียนเรียบร้อยแล้ว');
     }
 }; ?>
 
@@ -76,7 +76,7 @@ new class extends Component {
 
     <div class="mb-4 text-right">
         <span class="inline-block bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 px-4 py-2 rounded-lg font-semibold">
-            Your Registrations: {{ $totalRegistrations }} / 3
+            กิจกรรมที่คุณลงทะเบียน: {{ $totalRegistrations }} / 3
         </span>
     </div>
 
@@ -93,7 +93,7 @@ new class extends Component {
                             {{ $event->location }}
                         </div>
                         <div class="flex justify-between items-center text-sm">
-                            <span class="font-medium text-neutral-700 dark:text-neutral-300">Available Seats:</span>
+                            <span class="font-medium text-neutral-700 dark:text-neutral-300">ที่นั่งว่าง:</span>
                             @php
                                 $remaining = $event->total_seats - $event->registrations_count;
                                 $isFull = $remaining <= 0;
@@ -109,27 +109,27 @@ new class extends Component {
                 <div class="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-700 p-4">
                     @if($isRegistered)
                         <button wire:click="cancel({{ $event->id }})" class="w-full bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-800 dark:text-neutral-200 font-bold py-2 px-4 rounded transition-colors break-words">
-                            Registered (Cancel)
+                            ลงทะเบียนแล้ว (ยกเลิก)
                         </button>
                     @elseif($isFull)
                         <button disabled class="w-full bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 font-bold py-2 px-4 rounded cursor-not-allowed">
-                            Closed
+                            เต็มแล้ว
                         </button>
                     @elseif($totalRegistrations >= 3)
-                        <button disabled class="w-full bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 font-bold py-2 px-4 rounded cursor-not-allowed" title="You have reached the maximum of 3 registrations">
-                            Limit Reached
+                        <button disabled class="w-full bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 font-bold py-2 px-4 rounded cursor-not-allowed" title="คุณลงทะเบียนครบ 3 กิจกรรมแล้ว">
+                            สิทธิ์เต็ม
                         </button>
                     @else
                         <button wire:click="register({{ $event->id }})" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors" wire:loading.attr="disabled">
-                            <span wire:loading.remove wire:target="register({{ $event->id }})">Register</span>
-                            <span wire:loading wire:target="register({{ $event->id }})">Registering...</span>
+                            <span wire:loading.remove wire:target="register({{ $event->id }})">ลงทะเบียน</span>
+                            <span wire:loading wire:target="register({{ $event->id }})">กำลังลงทะเบียน...</span>
                         </button>
                     @endif
                 </div>
             </div>
         @empty
             <div class="col-span-full text-center py-8 bg-neutral-50 dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <p class="text-neutral-500 dark:text-neutral-400">No events available at the moment.</p>
+                <p class="text-neutral-500 dark:text-neutral-400">ยังไม่มีกิจกรรมในขณะนี้</p>
             </div>
         @endforelse
     </div>

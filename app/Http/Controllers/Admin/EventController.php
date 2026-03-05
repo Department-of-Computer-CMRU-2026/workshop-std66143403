@@ -35,7 +35,7 @@ class EventController extends Controller
         ]);
 
         Event::create($validated);
-        return redirect()->route('admin.events.index')->with('success', 'Event created.');
+        return redirect()->route('admin.events.index')->with('success', 'สร้างกิจกรรมสำเร็จ');
     }
 
     public function show(string $id)
@@ -61,13 +61,13 @@ class EventController extends Controller
 
         $event = Event::findOrFail($id);
         $event->update($validated);
-        return redirect()->route('admin.events.index')->with('success', 'Event updated.');
+        return redirect()->route('admin.events.index')->with('success', 'อัปเดตกิจกรรมสำเร็จ');
     }
 
     public function destroy(string $id)
     {
         $event = Event::findOrFail($id);
         $event->delete();
-        return redirect()->route('admin.events.index')->with('success', 'Event deleted.');
+        return redirect()->route('admin.events.index')->with('success', 'ลบกิจกรรมสำเร็จ');
     }
 }
