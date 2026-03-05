@@ -10,13 +10,13 @@ class EventController extends Controller
 {
     public function dashboard()
     {
-        $events = Event::withCount('registrations')->get();
+        $events = Event::withCount('registrations')->latest()->get();
         return view('admin.dashboard', compact('events'));
     }
 
     public function index()
     {
-        $events = Event::withCount('registrations')->get();
+        $events = Event::withCount('registrations')->latest()->get();
         return view('admin.events.index', compact('events'));
     }
 

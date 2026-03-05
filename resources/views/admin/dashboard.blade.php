@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-neutral-200 dark:divide-neutral-700">
-                        @foreach($events->take(5) as $event)
+                        @foreach($events as $event)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-900 dark:text-neutral-100">{{ $event->title }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500 dark:text-neutral-400">{{ $event->speaker }}</td>
