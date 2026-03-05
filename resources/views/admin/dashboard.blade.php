@@ -1,13 +1,15 @@
 <x-layouts::app :title="__('แดชบอร์ดผู้ดูแลระบบ')">
-    <div class="flex h-full w-full flex-1 flex-col gap-12">
+    <div class="flex h-full w-full flex-1 flex-col gap-12 animate-in fade-in duration-700">
         <!-- Dashboard Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div>
-                <h1 class="text-4xl font-black tracking-tight text-zinc-900 dark:text-white lg:text-6xl">แผงควบคุม</h1>
+                <h1 class="text-4xl font-black tracking-tight text-zinc-900 dark:text-white lg:text-6xl">
+                    <span class="bg-clip-text text-transparent bg-linear-to-r from-brand-500 to-indigo-500">แผงควบคุม</span>
+                </h1>
                 <p class="text-zinc-500 dark:text-zinc-400 mt-3 text-xl font-medium">ยินดีต้อนรับกลับมา! ระบบพร้อมสำหรับการจัดการข้อมูลกิจกรรมพรีเมียมของคุณแล้ว</p>
             </div>
             <div class="flex items-center gap-4">
-                <flux:button href="{{ route('admin.events.index') }}" variant="primary" icon="plus" class="bg-brand-600 hover:bg-brand-500 shadow-2xl shadow-brand-600/30 rounded-2xl h-14 px-8 font-black text-lg">
+                <flux:button href="{{ route('admin.events.create') }}" variant="primary" icon="plus" class="bg-brand-600 hover:bg-brand-500 shadow-2xl shadow-brand-600/30 rounded-2xl h-14 px-8 font-black text-lg transition-all hover:scale-105 active:scale-95">
                     สร้างกิจกรรมใหม่
                 </flux:button>
             </div>
