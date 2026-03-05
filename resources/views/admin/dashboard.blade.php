@@ -48,7 +48,7 @@
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 size-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-colors"></div>
                 <div class="flex items-center gap-6">
                     <div class="p-5 bg-emerald-500/10 rounded-3xl group-hover:bg-emerald-500/20 transition-colors">
-                        <flux:icon name="armchair" class="size-8 text-emerald-600 dark:text-emerald-400" />
+                        <flux:icon name="user-group" class="size-8 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div>
                         <p class="text-sm font-black text-zinc-400 uppercase tracking-[0.2em] mb-1">ที่นั่งว่าง</p>

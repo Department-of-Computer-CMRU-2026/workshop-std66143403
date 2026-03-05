@@ -103,7 +103,7 @@
                     
                     <div class="glass p-10 rounded-[3rem] border-white/5 hover:-translate-y-4 transition-all duration-500 cursor-default">
                         <div class="size-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-8">
-                            <flux:icon name="armchair" class="size-8 text-indigo-500" />
+                            <flux:icon name="user-group" class="size-8 text-indigo-500" />
                         </div>
                         <h4 class="text-2xl font-black mb-4">จำกัดจำนวนที่นั่ง</h4>
                         <p class="text-white/40 font-medium font-['IBM_Plex_Sans_Thai'] text-lg">เพื่อคุณภาพสูงสุดในการเรียนการสอน เราจึงจำกัดสิทธิ์ผู้เข้าร่วมในแต่ละเวิร์กชอป</p>
