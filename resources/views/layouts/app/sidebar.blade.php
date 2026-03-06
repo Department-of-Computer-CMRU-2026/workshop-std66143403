@@ -11,21 +11,23 @@
             </flux:sidebar.header>
 
             <flux:sidebar.nav class="px-2">
-                <flux:sidebar.group :heading="__('เมนูหลัก')" class="grid gap-1">
-                    <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate class="rounded-2xl font-bold py-3">
-                        {{ __('แผงควบคุม') }}
-                    </flux:sidebar.item>
+                @if(auth()->user()->role === 'admin')
+                    <flux:sidebar.group :heading="__('เมนูหลัก')" class="grid gap-1">
+                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate class="rounded-2xl font-bold py-3">
+                            {{ __('แผงควบคุม') }}
+                        </flux:sidebar.item>
 
-                    @if(auth()->user()->role === 'admin')
                         <flux:sidebar.item icon="book-open-text" :href="route('admin.events.index')" :current="request()->routeIs('admin.events.*')" wire:navigate class="rounded-2xl font-bold py-3">
                             {{ __('จัดการกิจกรรม') }}
                         </flux:sidebar.item>
-                    @else
-                        <flux:sidebar.item icon="book-open-text" :href="route('user.events')" :current="request()->routeIs('user.events')" wire:navigate class="rounded-2xl font-bold py-3">
-                            {{ __('กิจกรรมทั้งหมด') }}
+                    </flux:sidebar.group>
+                @else
+                    <flux:sidebar.group class="grid gap-1 mt-4">
+                        <flux:sidebar.item icon="sparkles" :href="route('user.events')" :current="request()->routeIs('user.events')" wire:navigate class="rounded-2xl font-bold py-3">
+                            {{ __('สำรวจกิจกรรม') }}
                         </flux:sidebar.item>
-                    @endif
-                </flux:sidebar.group>
+                    </flux:sidebar.group>
+                @endif
             </flux:sidebar.nav>
 
             <flux:spacer />
