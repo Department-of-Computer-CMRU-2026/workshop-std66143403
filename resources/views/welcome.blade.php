@@ -2,10 +2,10 @@
     <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Animated Decorative Elements -->
-        <div class="absolute -top-24 -left-24 size-96 bg-brand-500/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute top-1/4 -right-48 size-[400px] bg-rose-500/10 rounded-full blur-[130px] animate-pulse delay-500"></div>
-        <div class="absolute bottom-1/4 -left-48 size-[500px] bg-amber-500/10 rounded-full blur-[150px] animate-pulse delay-1000"></div>
-        <div class="absolute -bottom-24 right-1/4 size-96 bg-sky-500/10 rounded-full blur-[120px] animate-pulse delay-1500"></div>
+        <div class="absolute -top-24 -left-24 size-96 bg-brand-500/20 rounded-full blur-[64px] animate-pulse"></div>
+        <div class="absolute top-1/4 -right-48 size-[400px] bg-rose-500/10 rounded-full blur-[80px] animate-pulse delay-500"></div>
+        <div class="absolute bottom-1/4 -left-48 size-[500px] bg-amber-500/10 rounded-full blur-[80px] animate-pulse delay-1000"></div>
+        <div class="absolute -bottom-24 right-1/4 size-96 bg-sky-500/10 rounded-full blur-[64px] animate-pulse delay-1500"></div>
 
         <!-- Header/Navigation -->
         <header class="relative z-50 flex justify-between items-center py-10 mb-20">
@@ -54,7 +54,7 @@
                 <div class="w-full pt-16 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
                     <div class="glass-premium p-1 md:p-2 rounded-[4rem] hover:shadow-brand-500/20 transition-all duration-700">
                         <div class="bg-zinc-900/40 rounded-[3.5rem] p-10 md:p-20 border border-white/5 overflow-hidden relative">
-                            <div class="absolute -top-20 -right-20 size-64 bg-brand-500/10 rounded-full blur-[80px]"></div>
+                            <div class="absolute -top-20 -right-20 size-64 bg-brand-500/10 rounded-full blur-[40px]"></div>
                             <div class="relative z-10 flex flex-col md:flex-row items-center gap-16">
                                 <div class="text-left space-y-8 flex-1">
                                     <h2 class="text-4xl md:text-6xl font-black text-white leading-tight"> Senior-to-Junior <br/><span class="text-indigo-400">Workshop</span></h2>

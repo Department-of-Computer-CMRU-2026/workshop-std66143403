@@ -8,10 +8,9 @@
             <!-- Animated Background -->
             <div class="fixed inset-0 -z-10 overflow-hidden">
                 <div class="absolute inset-0 bg-animate-gradient opacity-60"></div>
-                <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 contrast-150 brightness-110"></div>
                 
-                <div class="absolute top-[-10%] left-[-10%] size-[500px] bg-brand-600/10 rounded-full blur-[100px] animate-pulse"></div>
-                <div class="absolute bottom-[-10%] right-[-10%] size-[600px] bg-indigo-600/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+                <div class="absolute top-[-10%] left-[-10%] size-[500px] bg-brand-600/10 rounded-full blur-[64px] animate-pulse"></div>
+                <div class="absolute bottom-[-10%] right-[-10%] size-[600px] bg-indigo-600/10 rounded-full blur-[80px] animate-pulse delay-1000"></div>
             </div>
             
             <div class="relative z-10 w-full max-w-7xl">
