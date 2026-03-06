@@ -61,7 +61,7 @@ new class extends Component {
     @if(session('success'))
         <div class="p-6 mb-8 text-lg font-bold text-emerald-800 rounded-3xl bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800 animate-in fade-in slide-in-from-top-4 duration-500" role="alert">
             <div class="flex items-center gap-3">
-                <flux:icon name="circle-check" class="size-6" />
+                <flux:icon name="check-circle" class="size-6" />
                 {{ session('success') }}
             </div>
         </div>
@@ -69,7 +69,7 @@ new class extends Component {
     @if(session('error'))
         <div class="p-6 mb-8 text-lg font-bold text-rose-800 rounded-3xl bg-rose-50 dark:bg-rose-900/20 dark:text-rose-400 border border-rose-100 dark:border-rose-800 animate-in fade-in slide-in-from-top-4 duration-500" role="alert">
             <div class="flex items-center gap-3">
-                <flux:icon name="circle-alert" class="size-6" />
+                <flux:icon name="exclamation-circle" class="size-6" />
                 {{ session('error') }}
             </div>
         </div>
@@ -132,7 +132,7 @@ new class extends Component {
                 <div class="p-8 pt-0 relative z-10">
                     @if($isRegistered)
                         <button wire:click="cancel({{ $event->id }})" class="w-full py-5 rounded-[2rem] bg-zinc-100 dark:bg-zinc-800 hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-900/20 text-zinc-900 dark:text-white font-black text-lg transition-all duration-300 flex items-center justify-center gap-3 shadow-sm border border-transparent hover:border-rose-200">
-                            <flux:icon name="circle-x" class="size-6" />
+                            <flux:icon name="x-circle" class="size-6" />
                             ยกเลิกการลงทะเบียน
                         </button>
                     @elseif($isFull)
