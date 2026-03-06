@@ -83,7 +83,7 @@
                                     <tr class="group hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition-all duration-300">
                                         <td class="px-10 py-8">
                                             <div class="flex flex-col">
-                                                <span class="text-lg font-black text-zinc-900 dark:text-white group-hover:text-brand-600 transition-colors">{{ $event->title }}</span>
+                                                <a href="{{ route('admin.events.show', $event->id) }}" class="text-lg font-black text-zinc-900 dark:text-white hover:text-brand-600 transition-colors">{{ $event->title }}</a>
                                                 <span class="text-sm font-medium text-zinc-400 mt-1">{{ $event->speaker }}</span>
                                             </div>
                                         </td>
@@ -99,7 +99,7 @@
                                             </div>
                                         </td>
                                         <td class="px-10 py-8 text-right">
-                                            <flux:button variant="subtle" icon="eye" class="rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800" />
+                                            <flux:button href="{{ route('admin.events.show', $event->id) }}" variant="subtle" icon="eye" class="rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800" />
                                         </td>
                                     </tr>
                                 @endforeach
