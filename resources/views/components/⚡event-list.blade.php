@@ -137,12 +137,12 @@ new class extends Component {
                         </button>
                     @elseif($isFull)
                         <button disabled class="w-full py-5 rounded-[2rem] bg-zinc-100 dark:bg-zinc-900 text-zinc-400 font-black text-lg cursor-not-allowed opacity-50 flex items-center justify-center gap-3">
-                            <flux:icon name="ban" class="size-6" />
+                            <flux:icon name="no-symbol" class="size-6" />
                             ไม่สามารถลงทะเบียนได้
                         </button>
                     @elseif($totalRegistrations >= 3)
                         <button disabled class="w-full py-5 rounded-[2rem] bg-zinc-100 dark:bg-zinc-900 text-zinc-400 font-black text-lg cursor-not-allowed opacity-50 flex items-center justify-center gap-3" title="คุณลงทะเบียนครบ 3 กิจกรรมแล้ว">
-                            <flux:icon name="lock" class="size-6" />
+                            <flux:icon name="lock-closed" class="size-6" />
                             คุณใช้สิทธิ์ครบแล้ว
                         </button>
                     @else
