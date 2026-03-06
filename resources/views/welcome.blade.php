@@ -86,7 +86,7 @@
                         <flux:icon name="arrow-right" class="inline-block size-8 ml-4 group-hover:translate-x-3 transition-transform" />
                     </a>
                     <a href="{{ route('login') }}" class="glass-premium w-full md:w-auto px-16 py-10 rounded-[3.5rem] text-white font-black text-3xl transition-all hover:bg-white/5 border-white/5 hover:scale-105">
-                        ตารางกิจกรรม
+                        เข้าสู่ระบบ
                     </a>
                 </div>
             </div>
